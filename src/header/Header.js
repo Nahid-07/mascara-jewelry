@@ -4,7 +4,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="md:flex justify-between h-20 items-center bg-[#f7f1e3] px-6 hidden">
+      <div className="md:flex justify-between h-20 items-center bg-[#f7f1e3] md:px-4 lg:px-20 hidden">
         <div className="w-[30%]">
           <nav>
             <ul className="flex space-x-5">
@@ -130,7 +130,7 @@ const Header = () => {
           <p>REFIND JEWELRY</p>
         </div>
       </div>
-      <div className={`bg-[#f7f1e3] w-full py-5 md:hidden ${open ? "block" : "hidden"}`}>
+      <div className={`bg-[#f7f1e3] w-full py-5 md:hidden ${open ? "block" : "hidden"} `}>
         <ul className="flex flex-col items-center  space-y-5">
           <li>
             <a href="#">GIFT</a>
