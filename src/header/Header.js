@@ -130,7 +130,7 @@ const Header = () => {
           <p>REFIND JEWELRY</p>
         </div>
       </div>
-      <div className={`bg-[#f7f1e3] w-full py-5 ${open ? "block" : "hidden"}`}>
+      <div className={`bg-[#f7f1e3] w-full py-5 md:hidden ${open ? "block" : "hidden"}`}>
         <ul className="flex flex-col items-center  space-y-5">
           <li>
             <a href="#">GIFT</a>
