@@ -14,6 +14,9 @@ const Section3 = () => {
             up on your diamond knowledge and meet the designers who are making
             dreams come true
           </p>
+          <button className="bg-[#7a6b47] w-full md:w-[300px] lg:w-[350px] py-4 text-white mt-8">
+          SHOP BRIDAL COLLECTION
+          </button>
         </article>
         <div className="md:w-[50%] border-8">
           <img className="h-full" src={flawless} alt="" />
