@@ -19,7 +19,7 @@ const Section5 = () => {
             Valentine’s Day jewelry gift upon your sweetheart, it probably is.
             Make us a part of your sweet journey of love.
           </p>
-          <button className="w-[100%] lg:w-[350px] bg-[#7a6b47] py-4 mt-5 text-white">
+          <button className="w-[100%] lg:w-[350px] bg-[#7a6b47] text-sm md:text-lg py-4 mt-5 text-white px-3">
             SHOP VALENTINE COLLECTION
           </button>
         </div>

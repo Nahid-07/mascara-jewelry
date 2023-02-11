@@ -20,42 +20,43 @@ const Secttion = () => {
           </h4>
         </div>
         <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-10 place-content-center">
-          <div className="w-[223px] h-[300px]">
+          <div className="w-[100%] md:w-[223px] h-[300px]">
             <img className="h-full" src={neck} alt="" />
             <p className="mt-3 text-lg">
               <a href="#">SHOP NECKLACES</a>
             </p>
           </div>
-          <div className="w-[223px] h-[300px]">
+          <div className="w-[100%] md:w-[223px] h-[300px]">
             <img className="h-full" src={ring} alt="" />
             <p className="mt-3 text-lg">
               <a href="#">SHOP NECKLACES</a>
             </p>
           </div>
-          <div className="w-[223px] h-[300px]">
+          <div className="w-[100%] md:w-[223px] h-[300px]">
             <img className="h-full" src={ring2} alt="" />
             <p className="mt-3 text-lg">
               <a href="#">SHOP NECKLACES</a>
             </p>
           </div>
-          <div className="w-[223px] h-[300px]">
+          <div className="w-[100%] md:w-[223px] h-[300px]">
             <img className="h-full" src={bracelet} alt="" />
             <p className="mt-3 text-lg">
               <a href="#">SHOP NECKLACES</a>
             </p>
           </div>
-          <div className="w-[223px] h-[300px]">
+          <div className="w-[100%] md:w-[223px] h-[300px]">
             <img className="h-full" src={ear} alt="" />
             <p className="mt-3 text-lg">
               <a href="#">SHOP NECKLACES</a>
             </p>
           </div>
-        
         </div>
       </div>
       <div className="flex justify-center mt-20">
-          <button className="w-[300px] bg-[#7a6b47] py-5 text-white text-xl">EXPLORE MORE</button>
-        </div>
+        <button className="w-[300px] bg-[#7a6b47] py-5 text-white text-sm md:text-lg">
+          EXPLORE MORE
+        </button>
+      </div>
     </div>
   );
 };
