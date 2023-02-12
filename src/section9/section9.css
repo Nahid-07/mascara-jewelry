@@ -1,0 +1,18 @@
+.bg{
+    background-image: url('../recources/img/Layer\ 18.png');
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-1{
+    background-image: url('../recources/img/Layer\ 19.png');
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-2{
+    background-image: url('../recources/img/Layer\ 20.png');
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
