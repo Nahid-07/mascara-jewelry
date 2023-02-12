@@ -2,6 +2,7 @@ import './App.css';
 import Banner from './banner/Banner';
 import Header from './header/Header';
 import Section3 from './section-3/Section3';
+import Section7 from './section-7/Section7';
 import Secttion from './section1/Secttion';
 import Section2 from './section2/Section2';
 import Section4 from './section4/Section4';
@@ -19,6 +20,7 @@ function App() {
     <Section4></Section4>
     <Section5></Section5>
     <Section6></Section6>
+    <Section7></Section7>
     </div>
   );
 }
