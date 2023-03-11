@@ -1,11 +1,17 @@
-import React from "react";
-import ring from "../recources/img/ring.jpg";
-import ring2 from "../recources/img/ring2.jpg";
-import ear from "../recources/img/ear.jpg";
-import bracelet from "../recources/img/bracelet (1).webp";
-import neck from "../recources/img/neck.webp";
-
+import React, { useEffect, useState } from "react";
+import Speener from "../component/Speener";
 const Secttion = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/displayProduct")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data)
+        setLoading(false)
+      });
+  }, []);
   return (
     <div className="bg-[#f7f1e3] p-12 w-[100vw]">
       <div className="max-w-7xl mx-auto">
@@ -19,38 +25,18 @@ const Secttion = () => {
             See everything we make below.
           </h4>
         </div>
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-10 place-content-center">
-          <div className="w-[100%] md:w-[223px] h-[300px]">
-            <img className="h-full" src={neck} alt="" />
-            <p className="mt-3 text-lg">
-              <a href="#">SHOP NECKLACES</a>
-            </p>
-          </div>
-          <div className="w-[100%] md:w-[223px] h-[300px]">
-            <img className="h-full" src={ring} alt="" />
-            <p className="mt-3 text-lg">
-              <a href="#">SHOP NECKLACES</a>
-            </p>
-          </div>
-          <div className="w-[100%] md:w-[223px] h-[300px]">
-            <img className="h-full" src={ring2} alt="" />
-            <p className="mt-3 text-lg">
-              <a href="#">SHOP NECKLACES</a>
-            </p>
-          </div>
-          <div className="w-[100%] md:w-[223px] h-[300px]">
-            <img className="h-full" src={bracelet} alt="" />
-            <p className="mt-3 text-lg">
-              <a href="#">SHOP NECKLACES</a>
-            </p>
-          </div>
-          <div className="w-[100%] md:w-[223px] h-[300px]">
-            <img className="h-full" src={ear} alt="" />
-            <p className="mt-3 text-lg">
-              <a href="#">SHOP NECKLACES</a>
-            </p>
-          </div>
+        { loading ? <Speener></Speener> :
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-10 place-content-center">
+          {products.map((product) => (
+            <div className="w-[100%] md:w-[223px] h-[300px] cursor-pointer">
+              <img className="h-full" src={product.image} alt="" />
+              <p className="mt-3 text-lg">
+                <a href="#">{product.productName}</a>
+              </p>
+            </div>
+          ))}
         </div>
+        }
       </div>
       <div className="flex justify-center mt-20">
         <button className="w-[300px] bg-[#7a6b47] py-5 text-white text-sm md:text-lg">

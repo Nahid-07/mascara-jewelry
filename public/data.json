@@ -1,0 +1,22 @@
+[
+    {
+        "image" : "https://i.ibb.co/dBHNmTs/neck.webp",
+        "productName" : "Necklace"
+    },
+    {
+        "image" : "https://i.ibb.co/x7PDMWC/ring.jpg",
+        "productName" : "White diamond ring"
+    },
+    {
+        "image" : "https://i.ibb.co/0XZfv4C/ring2.jpg",
+        "productName" : "Wedding Ring"
+    },
+    {
+        "image" : "https://i.ibb.co/FJbBjtB/bracelet-1.webp",
+        "productName" : "Bracelet Gold"
+    },
+    {
+        "image" : "https://i.ibb.co/NK8Tsxh/ear.jpg",
+        "productName" : "Ear ring gold"
+    }
+]
