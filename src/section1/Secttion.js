@@ -28,7 +28,7 @@ const Secttion = () => {
         { loading ? <Speener></Speener> :
           <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-10 place-content-center">
           {products.map((product) => (
-            <div className="w-[100%] md:w-[223px] h-[300px] cursor-pointer">
+            <div className="w-[100%] md:w-[223px] h-[300px] cursor-pointer" data-aos="fade-up">
               <img className="h-full" src={product.image} alt="" />
               <p className="mt-3 text-lg">
                 <a href="#">{product.productName}</a>

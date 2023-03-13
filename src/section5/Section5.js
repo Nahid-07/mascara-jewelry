@@ -5,10 +5,10 @@ const Section5 = () => {
   return (
     <div className="bg-[#f7f1e3] py-4 lg:py-0">
       <section className="max-w-7xl mx-auto px-12 md:flex gap-10 justify-center items-center">
-        <div className="w-[100%] md:w-[50%]">
+        <div className="w-[100%] md:w-[50%]" data-aos="flip-up">
           <img src={couple} alt="" />
         </div>
-        <div className="w-[100%] md:w-[50%] mt-4 md:mt-0">
+        <div className="w-[100%] md:w-[50%] mt-4 md:mt-0" data-aos="flip-down">
           <h4 className="lg:text-2xl md:text-xl">The Special Choice.</h4>
           <h1 className="lg:text-3xl md:text-2xl text-[#846315] lg:my-5 md:my-3">
             Valentine Special Jewelry
