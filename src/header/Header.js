@@ -2,22 +2,23 @@ import React, { useState } from "react";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const activeClass = "hover:bg-black duration-500 hover:px-2 hover:text-white hover:rounded"
   return (
     <>
       <div className="md:flex justify-between h-20 items-center bg-[#f7f1e3] md:px-4 lg:px-20 hidden">
         <div className="w-[30%]">
           <nav>
             <ul className="flex space-x-5">
-              <li>
+              <li className={activeClass}>
                 <a href="#">SHOP</a>
               </li>
-              <li>
+              <li className={activeClass}>
                 <a href="#">GIFTS</a>
               </li>
-              <li>
+              <li className={activeClass}>
                 <a href="#">ENGAEMENT</a>
               </li>
-              <li>
+              <li className={activeClass}>
                 <a href="#">ABOUT</a>
               </li>
             </ul>
