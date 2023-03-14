@@ -31,8 +31,8 @@ const Header = () => {
         <div className="w-[30%]">
           <ul className="flex space-x-5 justify-end items-center">
             <li className={activeClass}><Link to='/dashboard'>Dashboard</Link></li>
-            <li><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Login</button></li>
-            <li><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Logout</button></li>
+            <li><Link to='/login'><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Login</button></Link></li>
+            <li><Link to='/logout'><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Logout</button></Link></li>
           </ul>
         </div>
       </div>
