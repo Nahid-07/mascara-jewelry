@@ -28,14 +28,14 @@ const Header = () => {
           </nav>
         </div>
         <div className="text-center w-[30%]">
-          <h1 className="text-3xl font-semibold">MASCARA</h1>
-          <p>REFIND JEWELRY</p>
+          <Link to='/'><h1 className="text-3xl font-semibold">MASCARA</h1>
+          <p>REFIND JEWELRY</p></Link>
         </div>
         <div className="w-[30%]">
           <ul className="flex space-x-5 justify-end items-center">
-            <li className={activeClass}>
+            {user && <li className={activeClass}>
               <Link to="/dashboard">Dashboard</Link>
-            </li>
+            </li>}
             {!user ? <li>
               <Link to="/login">
                 <button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">
@@ -75,8 +75,8 @@ const Header = () => {
           </svg>
         </div>
         <div className="flex-1 text-center">
-          <h1 className="font-semibold text-xl">MASCARA</h1>
-          <p>REFIND JEWELRY</p>
+          <Link to='/'><h1 className="font-semibold text-xl">MASCARA</h1>
+          <p>REFIND JEWELRY</p></Link>
         </div>
       </div>
       <div
