@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { saveUserToDB } from "../../api/user";
 import SmallSpinner from "../../component/SmallSpeener";
 import { AuthContext } from "../../context/ContextAuth";
 
 const Signup = () => {
-  const { signUp, updateUserProfile,loading,setLoading,googleSignin } = useContext(AuthContext);
+  const { signUp, updateUserProfile, loading, setLoading, googleSignin } =
+    useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -22,27 +24,40 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        signUp(email, password).then((result) => {
-            console.log(result.user);
-          updateUserProfile(name, data.data.display_url)
-            .then(() => {
-                setLoading(false)
-            })
-            .catch((err) => console.log(err.message));
-        });
-      }).catch(err => {
-        console.log(err.message)
-        
+        const photoUrl = data.data.display_url;
+        signUp(email, password)
+          .then(() => {
+            updateUserProfile(name, photoUrl)
+              .then(() => {
+                saveUserToDB({ name, photoUrl, email });
+                setLoading(false);
+              })
+              .catch((err) => {
+                toast.error(err.message);
+              });
+          })
+          .then(() => {
+            toast.success("Account created successfylly");
+          })
+          .catch((err) => {
+            toast.error(err.message);
+            setLoading(false);
+          });
+      })
+      .catch((err) => {
+        toast.error(err.message);
       });
   };
 
-  const handleGoogleSubmit = ()=>{
-    googleSignin().then(() => {
-      toast.success("Signed in successfully")
-    }).catch(err => {
-      toast.error(err.message)
-    })
-  }
+  const handleGoogleSubmit = () => {
+    googleSignin()
+      .then(() => {
+        toast.success("Signed in successfully");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
 
   return (
     <div className="flex justify-center items-center py-8">
@@ -52,7 +67,7 @@ const Signup = () => {
           <p className="text-sm text-gray-400">Create a new account</p>
         </div>
         <form
-        onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -117,7 +132,7 @@ const Signup = () => {
           <div className="space-y-2">
             <div>
               <button className="w-full bg-[#062002] text-white  py-2 rounded-md">
-                {loading ?<SmallSpinner></SmallSpinner> :"Sign up"}
+                {loading ? <SmallSpinner></SmallSpinner> : "Sign up"}
               </button>
             </div>
           </div>
@@ -130,7 +145,11 @@ const Signup = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button onClick={handleGoogleSubmit} aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handleGoogleSubmit}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
