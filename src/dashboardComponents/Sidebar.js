@@ -10,7 +10,7 @@ const Sidebar = () => {
   const handleToggle = () => {
     setActive(!isActive)
   }
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
   return (
     <>
       {/* Small Screen Navbar */}
@@ -76,7 +76,7 @@ const Sidebar = () => {
 
         <div>
           <hr />
-          <button className='w-full bg-orange-200 py-2'>Logout</button>
+          <button onClick={logOut} className='w-full bg-orange-200 py-2'>Logout</button>
         </div>
       </div>
     </>
