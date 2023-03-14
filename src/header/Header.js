@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/ContextAuth";
 
 const Header = () => {
+  const { user,logOut,setLoading,loading } = useContext(AuthContext);
   const leftMenu = [
     { name: "Shop", path: "/shop" },
     { name: "Gifts", path: "/gifts" },
@@ -17,10 +19,11 @@ const Header = () => {
         <div className="w-[30%]">
           <nav>
             <ul className="flex space-x-5">
-              {
-                leftMenu.map(menu => <li className={activeClass}><Link to={menu.path}>{menu.name}</Link></li>)
-              }
-
+              {leftMenu.map((menu) => (
+                <li className={activeClass}>
+                  <Link to={menu.path}>{menu.name}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -30,9 +33,23 @@ const Header = () => {
         </div>
         <div className="w-[30%]">
           <ul className="flex space-x-5 justify-end items-center">
-            <li className={activeClass}><Link to='/dashboard'>Dashboard</Link></li>
-            <li><Link to='/login'><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Login</button></Link></li>
-            <li><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Logout</button></li>
+            <li className={activeClass}>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+            {!user ? <li>
+              <Link to="/login">
+                <button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">
+                  Login
+                </button>
+              </Link>
+            </li>
+            :
+            <li>
+              <button onClick={logOut} className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">
+                Logout
+              </button>
+            </li>
+            }
           </ul>
         </div>
       </div>
@@ -68,14 +85,29 @@ const Header = () => {
         } `}
       >
         <ul className="flex flex-col items-center  space-y-5">
-          {
-            leftMenu.map(menu =><li className={activeClass}><Link to={menu.path}>{menu.name}</Link></li> )
-          }
+          {leftMenu.map((menu) => (
+            <li className={activeClass}>
+              <Link to={menu.path}>{menu.name}</Link>
+            </li>
+          ))}
         </ul>
         <ul className="flex flex-col space-y-5 items-center justify-center mt-5">
-        <li className={activeClass}><Link to='/dashboard'>Dashboard</Link></li>
-            <li><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Login</button></li>
-            <li><button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">Logout</button></li>
+          <li className={activeClass}>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          {user ? (
+            <li>
+              <button onClick={logOut} className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">
+                Logout
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button className="border border-black px-3 py-1 rounded hover:bg-black hover:text-white duration-500">
+                Login
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </>

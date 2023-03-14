@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/ContextAuth';
 // import { AuthContext } from '../../contexts/AuthProvider'
 const Sidebar = () => {
 //   const { user, logout } = useContext(AuthContext)
@@ -9,6 +10,7 @@ const Sidebar = () => {
   const handleToggle = () => {
     setActive(!isActive)
   }
+  const {user} = useContext(AuthContext)
   return (
     <>
       {/* Small Screen Navbar */}
@@ -42,19 +44,19 @@ const Sidebar = () => {
               <Link to='/dashboard'>
                 <img
                   className='object-cover w-24 h-24 mx-2 rounded-full'
-                  src=""
+                  src={user?.photoURL}
                   alt='avatar'
                   referrerPolicy='no-referrer'
                 />
               </Link>
               <Link to='/dashboard'>
                 <h4 className='mx-2 mt-2 font-medium text-gray-800  hover:underline'>
-                  Nahidul Islam
+                {user?.displayName}
                 </h4>
               </Link>
               <Link to='/dashboard'>
                 <p className='mx-2 mt-1 text-sm font-medium text-gray-600  hover:underline'>
-                  nahid1998@gmail.com
+                  {user?.email}
                 </p>
               </Link>
             </div>
