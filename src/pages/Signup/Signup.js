@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/ContextAuth";
 
 const Signup = () => {
-  
+  const { signUp, updateUserProfile } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const name = e.target.name.value;
+    const image = e.target.image.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url =
+      "https://api.imgbb.com/1/upload?key=afef7a18a343b614ef922e54a0d39132";
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        signUp(email, password).then((result) => {
+            console.log(result.user);
+          updateUserProfile(name, data.data.display_url)
+            .then(() => {})
+            .catch((err) => console.log(err.message));
+        });
+      });
+  };
+
   return (
     <div className="flex justify-center items-center py-8">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -11,6 +37,7 @@ const Signup = () => {
           <p className="text-sm text-gray-400">Create a new account</p>
         </div>
         <form
+        onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -74,7 +101,9 @@ const Signup = () => {
           </div>
           <div className="space-y-2">
             <div>
-              <button className="w-full bg-[#062002] text-white  py-2 rounded-md">Sign up</button>
+              <button className="w-full bg-[#062002] text-white  py-2 rounded-md">
+                Sign up
+              </button>
             </div>
           </div>
         </form>
@@ -86,11 +115,7 @@ const Signup = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button
-            
-            aria-label="Log in with Google"
-            className="p-3 rounded-sm"
-          >
+          <button aria-label="Log in with Google" className="p-3 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
