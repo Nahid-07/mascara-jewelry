@@ -1,11 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SmallSpinner from "../../component/SmallSpeener";
 import { AuthContext } from "../../context/ContextAuth";
 
 const Login = () => {
   const { signIn, loading, setLoading, googleSignin} = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -14,6 +17,7 @@ const Login = () => {
       .then(() => {
         toast.success("Logged in successfully");
         setLoading(false)
+        navigate(from, {replace: true})
       })
       .catch((err) => {
         toast.error(err.message)

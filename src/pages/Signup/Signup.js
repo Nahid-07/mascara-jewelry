@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { saveUserToDB } from "../../api/user";
 import SmallSpinner from "../../component/SmallSpeener";
 import { AuthContext } from "../../context/ContextAuth";
@@ -8,6 +8,9 @@ import { AuthContext } from "../../context/ContextAuth";
 const Signup = () => {
   const { signUp, updateUserProfile, loading, setLoading, googleSignin } =
     useContext(AuthContext);
+    const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -38,6 +41,7 @@ const Signup = () => {
           })
           .then(() => {
             toast.success("Account created successfylly");
+            navigate(from, {replace : true})
           })
           .catch((err) => {
             toast.error(err.message);
