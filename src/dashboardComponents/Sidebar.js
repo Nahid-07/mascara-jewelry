@@ -49,12 +49,12 @@ const Sidebar = () => {
               </Link>
               <Link to='/dashboard'>
                 <h4 className='mx-2 mt-2 font-medium text-gray-800  hover:underline'>
-                  {/* {user?.displayName} */}
+                  Nahidul Islam
                 </h4>
               </Link>
               <Link to='/dashboard'>
                 <p className='mx-2 mt-1 text-sm font-medium text-gray-600  hover:underline'>
-                  {/* {user?.email} */}
+                  nahid1998@gmail.com
                 </p>
               </Link>
             </div>
@@ -74,14 +74,7 @@ const Sidebar = () => {
 
         <div>
           <hr />
-          {/* <PrimaryButton
-            handler={logout}
-            classes='flex block w-full rounded-full items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform'
-          >
-            <ArrowRightOnRectangleIcon className='w-5 h-5' />
-
-            <span className='mx-4 font-medium'>Logout</span>
-          </PrimaryButton> */}
+          <button className='w-full bg-orange-200 py-2'>Logout</button>
         </div>
       </div>
     </>
