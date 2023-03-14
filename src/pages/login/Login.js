@@ -1,7 +1,21 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import SmallSpinner from "../../component/SmallSpeener";
+import { AuthContext } from "../../context/ContextAuth";
 
 const Login = () => {
+  const { signIn, loading, setLoading } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setLoading(false)
+      })
+      .catch((err) => console.log(err.message));
+  };
   return (
     <div className="flex justify-center items-center py-[35px]">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -12,6 +26,7 @@ const Login = () => {
           </p>
         </div>
         <form
+        onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -49,7 +64,9 @@ const Login = () => {
           </div>
 
           <div>
-            <button className="w-full bg-[#062002] text-white  py-2 rounded-md">Sign in</button>
+            <button className="w-full bg-[#062002] text-white  py-2 rounded-md">
+              {loading ?<SmallSpinner></SmallSpinner>:"Sign in"}
+            </button>
           </div>
         </form>
         <div className="space-y-1">

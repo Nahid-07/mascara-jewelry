@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import SmallSpinner from "../../component/SmallSpeener";
 import { AuthContext } from "../../context/ContextAuth";
 
 const Signup = () => {
-  const { signUp, updateUserProfile } = useContext(AuthContext);
+  const { signUp, updateUserProfile,loading,setLoading } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -23,9 +24,14 @@ const Signup = () => {
         signUp(email, password).then((result) => {
             console.log(result.user);
           updateUserProfile(name, data.data.display_url)
-            .then(() => {})
+            .then(() => {
+                setLoading(false)
+            })
             .catch((err) => console.log(err.message));
         });
+      }).catch(err => {
+        console.log(err.message)
+        
       });
   };
 
@@ -102,7 +108,7 @@ const Signup = () => {
           <div className="space-y-2">
             <div>
               <button className="w-full bg-[#062002] text-white  py-2 rounded-md">
-                Sign up
+                {loading ?<SmallSpinner></SmallSpinner> :"Sign up"}
               </button>
             </div>
           </div>
