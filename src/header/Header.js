@@ -1,26 +1,27 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const menus = [
+    { name: "Shop", path: "/shop" },
+    { name: "Gifts", path: "/gifts" },
+    { name: "Engagement", path: "/engagement" },
+    { name: "About", path: "/about" },
+    { name: "Dashboard", path: "/dashboard" },
+  ];
   const [open, setOpen] = useState(false);
-  const activeClass = "hover:bg-black duration-500 hover:px-2 hover:text-white hover:rounded"
+  const activeClass =
+    "hover:bg-black duration-500 hover:px-2 hover:text-white hover:rounded";
   return (
     <>
       <div className="md:flex justify-between h-20 items-center bg-[#f7f1e3] md:px-4 lg:px-20 hidden">
         <div className="w-[30%]">
           <nav>
             <ul className="flex space-x-5">
-              <li className={activeClass}>
-                <a href="#">SHOP</a>
-              </li>
-              <li className={activeClass}>
-                <a href="#">GIFTS</a>
-              </li>
-              <li className={activeClass}>
-                <a href="#">ENGAEMENT</a>
-              </li>
-              <li className={activeClass}>
-                <a href="#">ABOUT</a>
-              </li>
+              {
+                menus.map(menu => <li className={activeClass}><Link to={menu.path}>{menu.name}</Link></li>)
+              }
+
             </ul>
           </nav>
         </div>
@@ -131,20 +132,15 @@ const Header = () => {
           <p>REFIND JEWELRY</p>
         </div>
       </div>
-      <div className={`bg-[#f7f1e3] w-full py-5 md:hidden ${open ? "block" : "hidden"} `}>
+      <div
+        className={`bg-[#f7f1e3] w-full py-5 md:hidden ${
+          open ? "block" : "hidden"
+        } `}
+      >
         <ul className="flex flex-col items-center  space-y-5">
-          <li>
-            <a href="#">GIFT</a>
-          </li>
-          <li>
-            <a href="#">SHOPS</a>
-          </li>
-          <li>
-            <a href="#">ENGAGEMENT</a>
-          </li>
-          <li>
-            <a href="#">ABOUT</a>
-          </li>
+          {
+            menus.map(menu =><li className={activeClass}><Link to={menu.path}>{menu.name}</Link></li> )
+          }
         </ul>
         <ul className="flex space-x-5 items-center justify-center mt-5">
           <li>
