@@ -11,11 +11,13 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     signIn(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        toast.success("Logged in successfully");
         setLoading(false)
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        toast.error(err.message)
+      });
   };
   // google log in
   const handleGoogleLogIn = ()=>{
