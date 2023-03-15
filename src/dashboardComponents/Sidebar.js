@@ -1,17 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/ContextAuth';
 import UserMenu from './UserMenu';
-// import { AuthContext } from '../../contexts/AuthProvider'
+import AdminMenu from './AdminMenu';
 const Sidebar = () => {
-//   const { user, logout } = useContext(AuthContext)
   const [isActive, setActive] = useState('false');
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive)
   }
-  const {user, logOut} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext);
+  const [users, setUsers] = useState('')
+  useEffect(()=>{
+    fetch(`http://localhost:5000/users/${user?.email}`)
+    .then(res => res.json()).then(data => {
+      setUsers(data.role)
+    })
+  },[user?.email])
   return (
     <>
       {/* Small Screen Navbar */}
@@ -66,7 +72,7 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
-              <UserMenu></UserMenu>
+              {users === "admin" ? <AdminMenu></AdminMenu> :<UserMenu></UserMenu>}
             </nav>
           </div>
         </div>
