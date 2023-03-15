@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllUsers from "../dashboardComponents/alluser/AllUsers";
 import BecomeAHost from "../dashboardComponents/BecomeAHost";
 import MyBookings from "../dashboardComponents/MyBookings";
 import Home from "../home/Home";
@@ -38,6 +39,10 @@ export  const router = createBrowserRouter([
             {
                 path : 'become-host',
                 element : <PrivetRoute><BecomeAHost></BecomeAHost></PrivetRoute>
+            },
+            {
+                path: 'all-users',
+                element : <AllUsers></AllUsers>
             }
         ]
     },
