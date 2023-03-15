@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/ContextAuth';
+import UserMenu from './UserMenu';
 // import { AuthContext } from '../../contexts/AuthProvider'
 const Sidebar = () => {
 //   const { user, logout } = useContext(AuthContext)
@@ -65,11 +66,7 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className='flex flex-col justify-between flex-1 mt-6'>
             <nav>
-              {/* {role && role !== 'requested' ? (
-                <>{role === 'admin' ? <AdminMenu /> : <HostMenu />} </>
-              ) : (
-                )} */}
-                {/* <UserMenu /> */}
+              <UserMenu></UserMenu>
             </nav>
           </div>
         </div>
