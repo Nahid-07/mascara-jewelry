@@ -79,7 +79,7 @@ const Sidebar = () => {
 
         <div>
           <hr />
-          <button onClick={logOut} className='w-full bg-orange-200 py-2'>Logout</button>
+          <button onClick={logOut} className='w-full bg-blue-400 text-white py-2'>Logout</button>
         </div>
       </div>
     </>
