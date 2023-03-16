@@ -16,7 +16,7 @@ const AllUsers = () => {
     <>
         {
             loading ? <Speener></Speener> : <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-            <h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+            <h2 className="mb-4 text-2xl font-semibold leading-tight">All users</h2>
             <div className="overflow-x-auto">
               <table className="min-w-full text-xs">
                 <thead className="dark:bg-gray-700">

@@ -1,6 +1,5 @@
 import React from "react";
 import { toast } from "react-hot-toast";
-import SmallSpinner from "../../component/SmallSpeener";
 
 
 const AddProducts = () => {
