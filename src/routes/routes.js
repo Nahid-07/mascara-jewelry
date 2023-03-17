@@ -7,7 +7,10 @@ import MyBookings from "../dashboardComponents/MyBookings";
 import Home from "../home/Home";
 import Dashboard from "../layout/Dashboard";
 import Main from "../layout/Main";
+// import ValentineCollections from "../layout/ValentineCollections";
 import Login from "../pages/login/Login";
+import Shop from "../pages/Shop/Shop";
+// import WeddingCollections from "../pages/Shop/WeddingCollections";
 import Signup from "../pages/Signup/Signup";
 import PrivetRoute from "./PrivetRoute";
 
@@ -27,7 +30,12 @@ export  const router = createBrowserRouter([
             {
                 path:'/signup',
                 element: <Signup></Signup>
+            },
+            {
+                path : '/shop',
+                element : <Shop></Shop>
             }
+            
         ]
     },
     {
