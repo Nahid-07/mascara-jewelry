@@ -69,6 +69,11 @@ const AddProducts = () => {
           >
             <option value="bridal">Bridal Collections</option>
             <option value="valentine">Valentine collections</option>
+            <option value="ring">Ring collections</option>
+            <option value="bracelet">Bracelet collections</option>
+            <option value="pandent">Pandent collections</option>
+            <option value="tiara">Tiara collections</option>
+            <option value="necklace">Necklace collections</option>
           </select>
         </div>
         <div className="mt-5">
