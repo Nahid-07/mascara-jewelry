@@ -9,12 +9,11 @@ import {
   GiGemChain,
 } from "react-icons/gi";
 import {BiGridSmall} from "react-icons/bi"
-import { AuthContext } from "../../context/ContextAuth";
 
 const Shop = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-10 lg:p-0 gap-6 py-20">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-10 gap-6 lg:py-20">
         <Link to='/coming-soon'>
           <div className="flex flex-col py-10 border-black border-4 rounded-md items-center">
             <BiGridSmall className="w-40 h-40 "></BiGridSmall>
