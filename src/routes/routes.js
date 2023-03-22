@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import ComingSoon from "../component/ComingSoon";
 import AddProducts from "../dashboardComponents/addProducts/AddProducts";
 import AllProducts from "../dashboardComponents/allProducts/AllProducts";
 import AllUsers from "../dashboardComponents/alluser/AllUsers";
@@ -32,6 +33,10 @@ export  const router = createBrowserRouter([
             {
                 path : '/shop',
                 element : <PrivetRoute><Shop></Shop></PrivetRoute>
+            },
+            {
+                path : "coming-soon",
+                element : <ComingSoon></ComingSoon>
             }
             
         ]

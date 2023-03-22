@@ -61,7 +61,8 @@ const AddProducts = () => {
             required
           />
         </div>
-        <div className="">
+        <div className="flex flex-col">
+          <label>Category</label>
           <select
             className="bg-gray-100 w-80 md:w-96 py-2 rounded"
             name="category"
