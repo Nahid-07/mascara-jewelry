@@ -13,7 +13,7 @@ const Sidebar = () => {
   const {user, logOut} = useContext(AuthContext);
   const [users, setUsers] = useState('')
   useEffect(()=>{
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://mascara-jwellary-server-nahid-07.vercel.app/users/${user?.email}`)
     .then(res => res.json()).then(data => {
       setUsers(data.role)
     })

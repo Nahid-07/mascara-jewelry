@@ -6,7 +6,7 @@ const AllProducts = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
-        fetch("http://localhost:5000/allproducts")
+        fetch("https://mascara-jwellary-server-nahid-07.vercel.app/allproducts")
         .then(res => res.json())
         .then(data => {
             setProducts(data)

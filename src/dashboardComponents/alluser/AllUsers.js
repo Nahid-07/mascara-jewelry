@@ -5,7 +5,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    fetch("http://localhost:5000/allusers")
+    fetch("https://mascara-jwellary-server-nahid-07.vercel.app/allusers")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data)

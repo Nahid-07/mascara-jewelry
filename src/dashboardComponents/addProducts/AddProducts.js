@@ -21,7 +21,7 @@ const AddProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         const photoUrl = data.data.display_url;
-        fetch("http://localhost:5000/add-product", {
+        fetch("https://mascara-jwellary-server-nahid-07.vercel.app/add-product", {
           method: "POST",
           headers: {
             "content-type": "application/json",

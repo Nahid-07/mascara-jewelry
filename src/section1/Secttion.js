@@ -5,7 +5,7 @@ const Secttion = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/displayProduct")
+    fetch("https://mascara-jwellary-server-nahid-07.vercel.app/displayProduct")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data)

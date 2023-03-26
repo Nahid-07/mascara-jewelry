@@ -1,5 +1,5 @@
 export const saveUserToDB = (userData) =>{
-    fetch("http://localhost:5000/users",{
+    fetch("https://mascara-jwellary-server-nahid-07.vercel.app/users",{
         method : "POST",
         headers : {
             "content-type" : "application/json"
