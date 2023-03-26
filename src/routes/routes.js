@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ComingSoon from "../component/ComingSoon";
+import ErrorPage from "../component/ErrorPage";
 import AddProducts from "../dashboardComponents/addProducts/AddProducts";
 import AllProducts from "../dashboardComponents/allProducts/AllProducts";
 import AllUsers from "../dashboardComponents/alluser/AllUsers";
@@ -8,6 +9,7 @@ import MyBookings from "../dashboardComponents/MyBookings";
 import Home from "../home/Home";
 import Dashboard from "../layout/Dashboard";
 import Main from "../layout/Main";
+import Bracelet from "../pages/collections/Bracelet";
 import Login from "../pages/login/Login";
 import Shop from "../pages/Shop/Shop";
 import Signup from "../pages/Signup/Signup";
@@ -17,6 +19,7 @@ export  const router = createBrowserRouter([
     {
         path : '/',
         element : <Main></Main>,
+        errorElement : <ErrorPage></ErrorPage>,
         children : [
             {
                 path : '/',
@@ -37,6 +40,10 @@ export  const router = createBrowserRouter([
             {
                 path : "coming-soon",
                 element : <ComingSoon></ComingSoon>
+            },
+            {
+                path : "/bracelet",
+                element : <Bracelet></Bracelet>
             }
             
         ]

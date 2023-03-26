@@ -38,7 +38,7 @@ const Shop = () => {
             <h3 className="text-2xl">Ring Collections</h3>
           </div>
         </Link>
-        <Link to='/coming-soon'>
+        <Link to='/bracelet'>
           <div className="flex flex-col py-10 border-black border-4 rounded-md items-center">
             <GiCloudRing className="w-40 h-40 "></GiCloudRing>
             <h3 className="text-2xl">bracelet Collections</h3>
